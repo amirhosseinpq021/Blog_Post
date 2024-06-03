@@ -36,7 +36,7 @@
               </div>
 
               <h2 class="entry-title">
-                <a href="blog-single.html">{{ post.short_description | truncatewords:10}}</a>
+                <a href="blog-single.html">{{ post.title | truncatewords:10}}</a>
               </h2>
 
               <div class="entry-meta">
@@ -50,7 +50,7 @@
               <div class="entry-content">
                 <p>{{ post.blog_body | truncatewords:35}}</p>
                 <div class="read-more">
-                  <a href="blog-single.html">Read More</a>
+                  <a href="{% url 'post_detail' post.pk%}">Read More</a>
                 </div>
               </div>
 
