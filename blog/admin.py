@@ -12,7 +12,7 @@ class BlogAdmin(admin.ModelAdmin):
 
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('comment', 'user',)
-    search_fields = ('comment', 'author',)
+    search_fields = ('comment', 'user',)
 
 
 admin.site.register(Category)

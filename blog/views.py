@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -6,7 +7,7 @@ from django.views.generic import TemplateView, CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView
 
 from .models import Post, Category, Comment
-from .forms import PostForm, EditPostForm
+from .forms import PostForm, EditPostForm, CommentForm
 from django.urls import reverse_lazy
 
 
@@ -82,10 +83,32 @@ def posts_by_category(request, category_id):
 def detail_post(request, pk):
     single_blog = get_object_or_404(Post, pk=pk)
     # comments
-    comment = Comment.objects.filter(blog=single_blog)
+    if request.method == 'POST':
+        comment = CommentForm()
+        comment.user = request.user
+        comment.blog = single_blog
+        comment.comment = request.POST['comment']
+        comment.save()
+        return HttpResponseRedirect(request.path_info)
+
+    else:
+        comment = Comment.objects.filter(blog=single_blog)
 
     context = {
         'post_detail': single_blog,
         'comments': comment,
     }
     return render(request, 'post_detail.html', context)
+
+
+def search(request):
+    keyword = request.GET.get('keyword')
+
+    blog_search = Post.objects.filter(
+        Q(title__icontains=keyword) | Q(short_description__icontains=keyword) | Q(blog_body__icontains=keyword))
+
+    context = {
+        'blogs': blog_search,
+        'keyword': keyword,
+    }
+    return render(request, 'search.html', context)
