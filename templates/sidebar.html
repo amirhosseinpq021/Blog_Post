@@ -13,7 +13,7 @@
     <div class="sidebar-item categories">
         {% for category in categories %}
             <ul>
-                <li><a href="#">{{ category }} <span>{{ category.count }}</span></a></li>
+                <li><a href="{% url 'posts_by_category' category.pk %}">{{ category }} <span>{{ category.count }}</span></a></li>
             </ul>
         {% endfor %}
 
