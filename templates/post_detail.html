@@ -97,25 +97,22 @@
                         <!-- End comment #1 -->
 
                         {% if user.is_authenticated %}
+                            {% load crispy_forms_tags %}
+                            <div class="reply-form">
+                                <h4>Leave a Reply</h4>
+                                <p>Your email address will not be published. Required fields are marked * </p>
+                                <form action="" method="post">
+                                    {% csrf_token %}
 
-                        <div class="reply-form">
-                            <h4>Leave a Reply</h4>
-                            <p>Your email address will not be published. Required fields are marked * </p>
-                            <form action="" method="post">
-                                {% csrf_token %}
-
-                                <div class="row">
-                                    <div class="col form-group">
-                                        <textarea name="comment" class="form-control"
-                                                  placeholder="Your Comment*"></textarea>
+                                    <div class="row">
+                                        {{ comment_form | crispy }}
                                     </div>
-                                </div>
 
-                                <button type="submit" value="submit" class="btn btn-primary">Post Comment</button>
+                                    <button type="submit" value="submit" class="btn btn-primary">Post Comment</button>
 
-                            </form>
+                                </form>
 
-                        </div>
+                            </div>
                         {% endif %}
 
                     </div><!-- End blog comments -->
@@ -130,6 +127,8 @@
                 </div>
 
             </div>
+        </div>
+
     </section><!-- End Blog Single Section -->
 
 

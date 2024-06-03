@@ -80,23 +80,27 @@ def posts_by_category(request, category_id):
     return render(request, 'post_by_category.html', context)
 
 
+@login_required(login_url='login')
 def detail_post(request, pk):
     single_blog = get_object_or_404(Post, pk=pk)
     # comments
     if request.method == 'POST':
-        comment = CommentForm()
-        comment.user = request.user
-        comment.blog = single_blog
-        comment.comment = request.POST['comment']
-        comment.save()
-        return HttpResponseRedirect(request.path_info)
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.user = request.user
+            comment.blog = single_blog
+            comment.save()
+            return HttpResponseRedirect(request.path_info)
 
     else:
+        comment_form = CommentForm()
         comment = Comment.objects.filter(blog=single_blog)
 
     context = {
         'post_detail': single_blog,
         'comments': comment,
+        'comment_form': comment_form,
     }
     return render(request, 'post_detail.html', context)
 

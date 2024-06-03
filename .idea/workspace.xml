@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bd1a6235-cf47-4beb-a309-a0dc4dac28fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +107,10 @@
       <workItem from="1717419144511" duration="16000" />
       <workItem from="1717419350832" duration="530000" />
       <workItem from="1717419975139" duration="2776000" />
+      <workItem from="1717431249575" duration="231000" />
+      <workItem from="1717437192600" duration="1444000" />
+      <workItem from="1717438664227" duration="395000" />
+      <workItem from="1717441264730" duration="1079000" />
     </task>
     <servers />
   </component>
