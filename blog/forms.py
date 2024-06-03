@@ -8,3 +8,9 @@ class PostForm(forms.ModelForm):
         fields = '__all__'
 
 
+class EditPostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'photo', 'short_description', 'blog_body']
+
+

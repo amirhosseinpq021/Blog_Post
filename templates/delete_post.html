@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% load crispy_forms_tags %}
+    <div class="container">
+        <form method="post" style="width:500px; margin:auto;">
+            {% csrf_token %}
+            <h3 class="text-bg-success">Delete the <strong>{{ delete.title }}</strong> ?</h3>
+            <button type="submit" class="btn btn-secondary btn-lg">YES DELETE</button>
+        </form>
+    </div>
+
+{% endblock %}

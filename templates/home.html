@@ -26,7 +26,7 @@
 
           <div class="col-lg-8 entries">
 
-
+                {% if posts %}
               {% for post in posts %}
 
             <article class="entry">
@@ -59,6 +59,7 @@
               <!-- End blog entry -->
 
 
+
             <!--pagination's-->
             <div class="blog-pagination">
               <ul class="justify-content-center">
@@ -67,7 +68,9 @@
                 <li><a href="#">3</a></li>
               </ul>
             </div>
-
+                {% else %}
+                    <h1>there are not any post yet</h1>
+                {% endif %}
           </div><!-- End blog entries list -->
 
           <div class="col-lg-4">
