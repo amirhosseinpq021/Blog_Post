@@ -1,10 +1,10 @@
 from django.urls import path
 from . import views
-from .views import HomeView, NewPost, PostDetail, EditPost, DeletePost
+from .views import HomeView, PostDetail, EditPost, DeletePost
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('post/new/', NewPost.as_view(), name='new_post'),
+    path('post/new/', views.add_post, name='new_post'),
     path('post/<int:pk>/', PostDetail.as_view(), name='post_detail'),
 
     # delete and edit posts crud
