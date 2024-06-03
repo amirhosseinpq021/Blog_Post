@@ -14,6 +14,10 @@ urlpatterns = [
     # post_by_category
     path('<int:category_id>/',  views.posts_by_category, name='posts_by_category'),
 
+    # edit and delete comments by
+    path('edit/<int:pk>/', views.edit_comment, name='edit_comments'),
+    path('delete/<int:pk>/', views.delete_comment, name='delete_comments'),
+
 ]
 
 

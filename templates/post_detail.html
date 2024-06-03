@@ -87,7 +87,16 @@
                                         <p>
                                             {{ comment.comment }}
                                         </p>
+                                        {% if user.username == post_detail.author.username %}
+                                        <a href="{% url 'edit_comments' comment.pk %}">
+                                            <button type="submit" class="btn btn-primary">Edit Comment</button>
+                                        </a>
+                                        <a href="{% url 'delete_comments' comment.pk %}">
+                                            <button type="submit" class="btn btn-primary">Delete Comment</button>
+                                        </a>
+                                        {% endif %}
                                     </div>
+
                                 </div>
                             </div>
                         {% endfor %}
@@ -109,7 +118,6 @@
                                     </div>
 
                                     <button type="submit" value="submit" class="btn btn-primary">Post Comment</button>
-
                                 </form>
 
                             </div>

@@ -20,3 +20,9 @@ class CommentForm(forms.ModelForm):
         fields = ('comment',)
 
 
+class EditCommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('comment',)
+
+

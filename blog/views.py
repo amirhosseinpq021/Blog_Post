@@ -7,7 +7,7 @@ from django.views.generic import TemplateView, CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView
 
 from .models import Post, Category, Comment
-from .forms import PostForm, EditPostForm, CommentForm
+from .forms import PostForm, EditPostForm, CommentForm, EditCommentForm
 from django.urls import reverse_lazy
 
 
@@ -116,3 +116,30 @@ def search(request):
         'keyword': keyword,
     }
     return render(request, 'search.html', context)
+
+
+# edit and delete
+def edit_comment(request, pk):
+    comments = get_object_or_404(Comment, pk=pk)
+    if request.method == 'POST':
+        form = EditCommentForm(request.POST, instance=comments)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = EditCommentForm(instance=comments)
+
+    context = {
+
+        'form': form,
+        'comments': comments,
+
+    }
+    return render(request, 'edit_comment.html', context)
+
+
+def delete_comment(request, pk):
+    comments = get_object_or_404(Comment, pk=pk)
+    comments.delete()
+    return redirect('home')
+
