@@ -20,7 +20,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from blog import views as BlogsView
+from blog import views as my_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +28,9 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
     path('category/', include('blog.urls')),
-    path('search/', BlogsView.search, name='search'),
+    path('search/', my_view.search, name='search'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
