@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 
 from django.views.generic import TemplateView, CreateView, ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView
 
-from .models import Post, Category
+from .models import Post, Category, Comment
 from .forms import PostForm, EditPostForm
 from django.urls import reverse_lazy
 
@@ -39,10 +40,10 @@ def add_post(request):
     return render(request, 'new_post.html', context)
 
 
-class PostDetail(DetailView):
-    model = Post
-    template_name = 'post_detail.html'
-    context_object_name = 'post_detail'
+# class PostDetail(DetailView):
+#     model = Post
+#     template_name = 'post_detail.html'
+#     context_object_name = 'post_detail'
 
 
 class EditPost(UpdateView):
@@ -76,3 +77,15 @@ def posts_by_category(request, category_id):
         'category': category,
     }
     return render(request, 'post_by_category.html', context)
+
+
+def detail_post(request, pk):
+    single_blog = get_object_or_404(Post, pk=pk)
+    # comments
+    comment = Comment.objects.filter(blog=single_blog)
+
+    context = {
+        'post_detail': single_blog,
+        'comments': comment,
+    }
+    return render(request, 'post_detail.html', context)
