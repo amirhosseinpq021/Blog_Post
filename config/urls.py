@@ -30,6 +30,9 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('search/', my_view.search, name='search'),
 
+    # dashboard
+    path('dashboard/', include('dashboard.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

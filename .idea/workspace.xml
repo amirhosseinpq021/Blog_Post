@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bd1a6235-cf47-4beb-a309-a0dc4dac28fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +58,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\apadana\Desktop\django_project\microlearn\blog\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\apadana\Desktop\django_project\microlearn\blog\dashboard\templates" />
+      <recent name="C:\Users\apadana\Desktop\django_project\microlearn\blog\templates" />
     </key>
   </component>
   <component name="RunManager">
@@ -116,7 +123,12 @@
       <workItem from="1717494838987" duration="928000" />
       <workItem from="1717496178667" duration="253000" />
       <workItem from="1717498007939" duration="19000" />
-      <workItem from="1717501991094" duration="3497000" />
+      <workItem from="1717501991094" duration="3912000" />
+      <workItem from="1717507719336" duration="13000" />
+      <workItem from="1717519373650" duration="72000" />
+      <workItem from="1717529416575" duration="546000" />
+      <workItem from="1717532440083" duration="25000" />
+      <workItem from="1717532739861" duration="1690000" />
     </task>
     <servers />
   </component>

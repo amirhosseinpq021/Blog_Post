@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # new app
     'blog',
     'accounts',
+    'dashboard',
 
     # crispy form
     "crispy_forms",
