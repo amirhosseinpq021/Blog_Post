@@ -15,7 +15,7 @@
             {% if user.is_staff %}
 
                 <h1>All Posts</h1>
-                <a href="" class="btn btn-dark text-light float-right mb-2">Add New</a>
+                <a href="{% url 'add_post' %}" class="btn btn-dark text-light float-right mb-2">Add New</a>
                 <table class="table table-hover">
                     <thead>
                     <tr>
@@ -35,7 +35,7 @@
                         <tr>
 
                             <td>{{ forloop.counter }}</td>
-                            <td><a href="">{{ all_post.title }}</a></td>
+                            <td><a href="{% url 'post_detail' all_post.pk %}">{{ all_post.title }}</a></td>
                             <td>{{ all_post.category }}</td>
                             <td>{{ all_post.author }}</td>
 
