@@ -12,9 +12,9 @@
 {#                   class="nav-link text-dark {% if '/users/' in request.path %}bg-warning{% endif %}">Users</a>#}
 {#            {% endif %}#}
 {##}
-{#            <a href=""#}
-{#               class="nav-link text-dark {% if '/categories/' in request.path %}bg-warning{% endif %}">Categories</a>#}
-            <a href=""
+            <a href="{% url 'comments' %}"
+               class="nav-link text-dark {% if '/comments/' in request.path %}bg-warning{% endif %}">comments</a>
+            <a href="{% url 'my_dashboard' %}"
                class="nav-link text-dark {% if '/posts/' in request.path %}bg-warning{% endif %}">Posts</a>
 
 {#            <a href="" class="nav-link text-dark">Logout</a>#}

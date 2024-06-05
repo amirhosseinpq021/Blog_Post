@@ -9,4 +9,7 @@ urlpatterns = [
     path('posts/edit/<int:pk>/', views.edit_post_by_manager, name='edit_post_by_manager'),
     path('posts/delete/<int:pk>/', views.delete_post_by_manager, name='delete_post_by_manager'),
 
+    # comments crud by manager
+    path('comments/', views.comments, name='comments'),
+
 ]

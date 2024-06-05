@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from blog.models import Post
+from blog.models import Post, Comment
 
 
 from django.shortcuts import get_object_or_404
@@ -56,4 +56,18 @@ def delete_post_by_manager(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect('my_dashboard')
+
+# _____________________________________________________________________________________________________________________
+
+
+def comments(request):
+    all_comment = Comment.objects.all()
+    context = {
+        'all_comment': all_comment,
+    }
+    return render(request, 'dashboard/all_comments.html', context)
+
+
+
+
 
