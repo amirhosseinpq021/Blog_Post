@@ -57,7 +57,10 @@
             <ul>
                 <li><a class="active" href="{% url 'home' %}">Home</a></li>
 
+                {% if user.is_staff %}
                 <li><a class="active" href="{% url 'my_dashboard' %}">my dashboard</a></li>
+                {% endif %}
+
 
                 {% if user.is_authenticated %}
                     <li><a class="active" href="{% url 'new_post' %}">Add Your Post</a></li>
