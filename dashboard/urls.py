@@ -12,4 +12,6 @@ urlpatterns = [
     # comments crud by manager
     path('comments/', views.comments, name='comments'),
 
+    path('comments/delete/<int:pk>/', views.delete_comments_by_manager, name='delete_comments_by_manager'),
+
 ]

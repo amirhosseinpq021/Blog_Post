@@ -68,6 +68,8 @@ def comments(request):
     return render(request, 'dashboard/all_comments.html', context)
 
 
-
-
+def delete_comments_by_manager(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.delete()
+    return redirect('comments')
 
