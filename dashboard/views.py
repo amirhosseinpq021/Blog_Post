@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from blog.models import Post
 
 
+from django.shortcuts import get_object_or_404
+
 # Create your views here.
 
 
@@ -31,4 +33,27 @@ def add_post(request):
         'form': form,
     }
     return render(request, 'new_post.html', context)
+
+
+def edit_post_by_manager(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        form = BlogPostsForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('my_dashboard')
+
+    else:
+        form = BlogPostsForm(instance=post)
+    context = {
+        'form': form,
+        'post': post,
+        }
+    return render(request, 'dashboard/edit_posts.html', context)
+
+
+def delete_post_by_manager(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('my_dashboard')
 
